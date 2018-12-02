@@ -12,7 +12,7 @@ const hash = window.location.hash
 window.location.hash = '';
 
 // Set token
-let _token = 'BQAbqdJdazC5WtnPRJGE1LpW-75YBYbFoj5N0672Nq7W3P4zYHdIlUy7n3UyYVBOiedGd5nWgvf2hHAuNsmKTULvdQAHqUzzAqiuTvzOCARynr82aJupLfVpduPYbIv8kK8cJuFPYx9q7DM-xhbM9sIhS79W-yvyFQgPvPkE9qP9';
+let _token = hash.access_token;
 
 const authEndpoint = 'https://accounts.spotify.com/authorize';
 
