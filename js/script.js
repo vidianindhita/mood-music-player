@@ -17,8 +17,8 @@ let _token = hash.access_token;
 const authEndpoint = 'https://accounts.spotify.com/authorize';
 
 // Replace with your app's client ID, redirect URI and desired scopes
-const clientId = '2102d6bf57714410a8f50dd1ccadc571';
-const redirectUri = 'https://spotify-web-playback.glitch.me';
+const clientId = '027618dc955741e3925623fcee718fad';
+const redirectUri = 'https://vidianindhita.github.io/mood-music-player/';
 const scopes = [
   'streaming',
   'user-read-birthdate',
