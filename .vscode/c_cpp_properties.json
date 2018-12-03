@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "name": "Mac",
+            "includePath": [
+                "/Users/vidianindhita/Library/Arduino15/packages/arduino/tools/**",
+                "/Users/vidianindhita/Library/Arduino15/packages/arduino/hardware/samd/1.6.17/**"
+            ],
+            "forcedInclude": [
+                "/Users/vidianindhita/Library/Arduino15/packages/arduino/hardware/samd/1.6.17/cores/arduino/Arduino.h"
+            ]
+        }
+    ]
+}
