@@ -1,5 +1,6 @@
 var obj;
 var id;
+var dance;
 
 // Get the hash of the url
 const hash = window.location.hash
@@ -57,6 +58,7 @@ window.onSpotifyPlayerAPIReady = () => {
     console.log(id);
     $('#current-track').attr('src', state.track_window.current_track.album.images[0].url);
     $('#current-track-name').text(state.track_window.current_track.name);
+    $('#audio-features').text(state.danceability);
   });
 
   // Ready
