@@ -58,7 +58,7 @@ window.onSpotifyPlayerAPIReady = () => {
     console.log(id);
     $('#current-track').attr('src', state.track_window.current_track.album.images[0].url);
     $('#current-track-name').text(state.track_window.current_track.name);
-    $('#audio-features').text(state.danceability);
+    $('#audio-features').text(getAudioTrack(id).danceability);
     console.log("Dance");
     console.log(getAudioTrack(id).danceability);
   });
