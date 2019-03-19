@@ -59,6 +59,8 @@ window.onSpotifyPlayerAPIReady = () => {
     $('#current-track').attr('src', state.track_window.current_track.album.images[0].url);
     $('#current-track-name').text(state.track_window.current_track.name);
     $('#audio-features').text(state.danceability);
+    console.log("Dance");
+    console.log(state.danceability);
   });
 
   // Ready
@@ -82,7 +84,7 @@ function play(device_id) {
    data: '{"uris": ["spotify:track:4aT6vP9y2eDjxmRGm5ZqSC"]}',
    beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Bearer ' + _token );},
    success: function(data) { 
-     //console.log(data)
+     console.log(data)
    }
   });
 }
