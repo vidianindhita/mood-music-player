@@ -18,6 +18,7 @@ const authEndpoint = 'https://accounts.spotify.com/authorize';
 
 // Replace with your app's client ID, redirect URI and desired scopes
 const clientId = '027618dc955741e3925623fcee718fad';
+//const redirectUri = 'https://vidianindhita.github.io/mood-music-player/';
 const redirectUri = 'https://vidianindhita.github.io/mood-music-player/';
 const scopes = [
   'streaming',
@@ -58,6 +59,7 @@ window.onSpotifyPlayerAPIReady = () => {
     
     // Play a track using our new device ID
     play(data.device_id);
+    audioFeatures(data.device_id);
   });
 
   // Connect to the player!
@@ -72,7 +74,20 @@ function play(device_id) {
    data: '{"uris": ["spotify:track:5ya2gsaIhTkAuWYEMB0nw5"]}',
    beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Bearer ' + _token );},
    success: function(data) { 
+     //console.log(data)
+   }
+  });
+}
+
+function audioFeatures(device_id) {
+  $.ajax({
+   url: "https://api.spotify.com/v1/audio-features/" + device_id,
+   type: "PUT",
+   data: '{"uris": ["spotify:track:5ya2gsaIhTkAuWYEMB0nw5"]}',
+   beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Bearer ' + _token );},
+   success: function(data) { 
      console.log(data)
    }
   });
+
 }
