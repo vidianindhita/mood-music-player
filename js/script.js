@@ -59,7 +59,7 @@ window.onSpotifyPlayerAPIReady = () => {
     
     // Play a track using our new device ID
     play(data.device_id);
-    audioFeatures(data.device_id);
+    audioFeatures(data.id);
   });
 
   // Connect to the player!
@@ -79,14 +79,14 @@ function play(device_id) {
   });
 }
 
-function audioFeatures(device_id) {
+function audioFeatures(id) {
   $.ajax({
-   url: "https://api.spotify.com/v1/audio-features/" + device_id,
+   url: "https://api.spotify.com/v1/audio-features/" + id,
    type: "PUT",
    data: '{"uris": ["spotify:track:5ya2gsaIhTkAuWYEMB0nw5"]}',
    beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Bearer ' + _token );},
    success: function(data) { 
-     console.log(data)
+     console.log(id)
    }
   });
 
