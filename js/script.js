@@ -61,7 +61,6 @@ window.onSpotifyPlayerAPIReady = () => {
     console.log("Dance 2");
     $('#current-track').attr('src', state.track_window.current_track.album.images[0].url);
     $('#current-track-name').text(state.track_window.current_track.name);
-    // $('#audio-features').text(getAudioTrack(id).danceability);
     
    // console.log(dance);
   });
@@ -103,6 +102,7 @@ function getAudioTrack(id) {
     dance = data.danceability;
      //console.log(data);
      console.log(data);
+     $('#audio-features').text(dance);
    }
   });
 }
