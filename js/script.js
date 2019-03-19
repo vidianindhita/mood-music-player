@@ -65,7 +65,7 @@ window.onSpotifyPlayerAPIReady = () => {
     
     // Play a track using our new device ID
     play(data.device_id);
-    audioFeatures();
+    //audioFeatures();
   });
 
   // Connect to the player!
