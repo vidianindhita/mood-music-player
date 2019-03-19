@@ -103,6 +103,8 @@ function getAudioTrack(id) {
      if (dance > 0.7) {
         console.log(dance);
         $('#audio-features').text(dance);
+     } else {
+        $('#audio-features').text("No");
      }
      
    }
