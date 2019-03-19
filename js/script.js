@@ -91,7 +91,7 @@ function getAudioTrack(id) {
    url: "https://api.spotify.com/v1/audio-features/" + id,
    type: "GET",
    // data: '{"uris": ["spotify:track:5ya2gsaIhTkAuWYEMB0nw5"]}',
-   // beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Bearer ' + _token );},
+   beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Bearer ' + _token );},
    success: function(data) { 
      console.log(data);
    }
