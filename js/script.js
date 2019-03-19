@@ -86,6 +86,7 @@ function play(device_id) {
 }
 
 function getAudioTrack(id) {
+  console.log("Audio Track");
   $.ajax({
    url: "https://api.spotify.com/v1/audio-features/" + id,
    type: "GET",
