@@ -56,13 +56,11 @@ window.onSpotifyPlayerAPIReady = () => {
     obj = state;
     id = obj.track_window.current_track.id;
     audiofeature = getAudioTrack(id);
-    //dance = audiofeature.danceability;
     console.log(id);
     console.log("Dance 2");
     $('#current-track').attr('src', state.track_window.current_track.album.images[0].url);
     $('#current-track-name').text(state.track_window.current_track.name);
     
-   // console.log(dance);
   });
 
   // Ready
@@ -101,8 +99,12 @@ function getAudioTrack(id) {
 
     dance = data.danceability;
      //console.log(data);
-     console.log(data);
-     $('#audio-features').text(dance);
+
+     if (dance > 0.7) {
+        console.log(dance);
+        $('#audio-features').text(dance);
+     }
+     
    }
   });
 }
