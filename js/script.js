@@ -1,3 +1,5 @@
+var obj;
+
 // Get the hash of the url
 const hash = window.location.hash
 .substring(1)
@@ -48,7 +50,8 @@ window.onSpotifyPlayerAPIReady = () => {
 
   // Playback status updates
   player.on('player_state_changed', state => {
-    console.log(state)
+    obj = state;
+    console.log(obj);
     $('#current-track').attr('src', state.track_window.current_track.album.images[0].url);
     $('#current-track-name').text(state.track_window.current_track.name);
   });
@@ -59,7 +62,7 @@ window.onSpotifyPlayerAPIReady = () => {
     
     // Play a track using our new device ID
     play(data.device_id);
-    audioFeatures(data.id);
+    //audioFeatures(data.id);
   });
 
   // Connect to the player!
@@ -79,15 +82,15 @@ function play(device_id) {
   });
 }
 
-function audioFeatures(id) {
-  $.ajax({
-   url: "https://api.spotify.com/v1/audio-features/" + id,
-   type: "GET",
-   data: '{"uris": ["spotify:track:5ya2gsaIhTkAuWYEMB0nw5"]}',
-   beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Bearer ' + _token );},
-   success: function(data) { 
-     console.log(id)
-   }
-  });
+// function audioFeatures(id) {
+//   $.ajax({
+//    url: "https://api.spotify.com/v1/audio-features/" + id,
+//    type: "GET",
+//    data: '{"uris": ["spotify:track:5ya2gsaIhTkAuWYEMB0nw5"]}',
+//    beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Bearer ' + _token );},
+//    success: function(data) { 
+//      console.log(id)
+//    }
+//   });
 
-}
+// }
