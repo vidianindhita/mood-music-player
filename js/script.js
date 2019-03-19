@@ -56,14 +56,14 @@ window.onSpotifyPlayerAPIReady = () => {
     obj = state;
     id = obj.track_window.current_track.id;
     audiofeature = getAudioTrack(id);
-    dance = audiofeature.danceability;
+    //dance = audiofeature.danceability;
     console.log(id);
     console.log("Dance 2");
     $('#current-track').attr('src', state.track_window.current_track.album.images[0].url);
     $('#current-track-name').text(state.track_window.current_track.name);
     // $('#audio-features').text(getAudioTrack(id).danceability);
     
-    console.log(dance);
+   // console.log(dance);
   });
 
   // Ready
@@ -99,7 +99,9 @@ function getAudioTrack(id) {
    // data: '{"uris": ["spotify:track:5ya2gsaIhTkAuWYEMB0nw5"]}',
    beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Bearer ' + _token );},
    success: function(data) { 
+    dance = data.danceability;
      //console.log(data);
+     console.log(dance);
    }
   });
 }
