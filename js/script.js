@@ -102,9 +102,9 @@ function getAudioTrack(id) {
 
      if (dance > 0.7) {
         console.log(dance);
-        $('#audio-features').text(dance);
+        $('#audio-features').text("Happy Song");
      } else {
-        $('#audio-features').text("No");
+        $('#audio-features').text("Mellow Song");
      }
      
    }
