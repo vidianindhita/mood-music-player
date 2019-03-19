@@ -98,10 +98,11 @@ function getAudioTrack(id) {
    type: "GET",
    // data: '{"uris": ["spotify:track:5ya2gsaIhTkAuWYEMB0nw5"]}',
    beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Bearer ' + _token );},
-   success: function(data) { 
+   success: function(data) {
+
     dance = data.danceability;
      //console.log(data);
-     console.log(dance);
+     console.log(data);
    }
   });
 }
