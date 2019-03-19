@@ -60,7 +60,7 @@ window.onSpotifyPlayerAPIReady = () => {
     $('#current-track-name').text(state.track_window.current_track.name);
     $('#audio-features').text(state.danceability);
     console.log("Dance");
-    console.log(state.danceability);
+    console.log(getAudioTrack(id).danceability);
   });
 
   // Ready
@@ -101,16 +101,3 @@ function getAudioTrack(id) {
    }
   });
 }
-
-// function audioFeatures(id) {
-//   $.ajax({
-//    url: "https://api.spotify.com/v1/audio-features/" + id,
-//    type: "GET",
-//    data: '{"uris": ["spotify:track:5ya2gsaIhTkAuWYEMB0nw5"]}',
-//    beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Bearer ' + _token );},
-//    success: function(data) { 
-//      console.log(id)
-//    }
-//   });
-
-// }
