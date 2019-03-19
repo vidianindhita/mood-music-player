@@ -1,4 +1,5 @@
 var obj;
+var id;
 
 // Get the hash of the url
 const hash = window.location.hash
@@ -51,7 +52,8 @@ window.onSpotifyPlayerAPIReady = () => {
   // Playback status updates
   player.on('player_state_changed', state => {
     obj = state;
-    console.log(obj);
+    id = obj.track_window.current_track.id;
+    console.log(id);
     $('#current-track').attr('src', state.track_window.current_track.album.images[0].url);
     $('#current-track-name').text(state.track_window.current_track.name);
   });
