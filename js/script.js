@@ -53,6 +53,7 @@ window.onSpotifyPlayerAPIReady = () => {
   player.on('player_state_changed', state => {
     obj = state;
     id = obj.track_window.current_track.id;
+    getAudioTrack(id);
     console.log(id);
     $('#current-track').attr('src', state.track_window.current_track.album.images[0].url);
     $('#current-track-name').text(state.track_window.current_track.name);
@@ -64,7 +65,7 @@ window.onSpotifyPlayerAPIReady = () => {
     
     // Play a track using our new device ID
     play(data.device_id);
-    //audioFeatures(data.id);
+    audioFeatures();
   });
 
   // Connect to the player!
@@ -80,6 +81,18 @@ function play(device_id) {
    beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Bearer ' + _token );},
    success: function(data) { 
      //console.log(data)
+   }
+  });
+}
+
+function getAudioTrack(id) {
+  $.ajax({
+   url: "https://api.spotify.com/v1/audio-features/" + id,
+   type: "GET",
+   // data: '{"uris": ["spotify:track:5ya2gsaIhTkAuWYEMB0nw5"]}',
+   // beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Bearer ' + _token );},
+   success: function(data) { 
+     console.log(data);
    }
   });
 }
