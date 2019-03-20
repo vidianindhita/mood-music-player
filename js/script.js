@@ -98,7 +98,14 @@ function getAudioTrack(id) {
      if (dance > 0.7) {
         console.log(dance);
         $('#audio-features').text("Happy Song");
-        $.get("http://192.168.1.47/H", function(data, status){
+
+        // HOME IP
+        // $.get("http://192.168.1.47/H", function(data, status){
+        //   alert("Data: " + data + "\nStatus: " + status);
+        // });
+
+        // VIDIAS PHONE
+        $.get("http://172.20.10.10/H", function(data, status){
           alert("Data: " + data + "\nStatus: " + status);
         });
      } else {
