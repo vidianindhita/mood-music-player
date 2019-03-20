@@ -23,7 +23,7 @@ const authEndpoint = 'https://accounts.spotify.com/authorize';
 
 // Replace with your app's client ID, redirect URI and desired scopes
 const clientId = '027618dc955741e3925623fcee718fad';
-//const redirectUri = 'https://vidianindhita.github.io/mood-music-player/';
+
 const redirectUri = 'https://vidianindhita.github.io/mood-music-player/';
 const scopes = [
   'streaming',
@@ -38,7 +38,6 @@ if (!_token) {
 }
 
 // Set up the Web Playback SDK
-
 window.onSpotifyPlayerAPIReady = () => {
   const player = new Spotify.Player({
     name: 'Mood Music Player',
@@ -57,10 +56,8 @@ window.onSpotifyPlayerAPIReady = () => {
     id = obj.track_window.current_track.id;
     audiofeature = getAudioTrack(id);
     console.log(id);
-    console.log("Dance 2");
     $('#current-track').attr('src', state.track_window.current_track.album.images[0].url);
     $('#current-track-name').text(state.track_window.current_track.name);
-    
   });
 
   // Ready
@@ -71,7 +68,7 @@ window.onSpotifyPlayerAPIReady = () => {
     play(data.device_id);
   });
 
-  // Connect to the player!
+  // Connect to the player
   player.connect();
 }
 
@@ -93,16 +90,17 @@ function getAudioTrack(id) {
   $.ajax({
    url: "https://api.spotify.com/v1/audio-features/" + id,
    type: "GET",
-   // data: '{"uris": ["spotify:track:5ya2gsaIhTkAuWYEMB0nw5"]}',
    beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Bearer ' + _token );},
    success: function(data) {
 
     dance = data.danceability;
-     //console.log(data);
 
      if (dance > 0.7) {
         console.log(dance);
         $('#audio-features').text("Happy Song");
+        $.get("http://192.168.1.47/H", function(data, status){
+          alert("Data: " + data + "\nStatus: " + status);
+        });
      } else {
         $('#audio-features').text("Mellow Song");
      }
