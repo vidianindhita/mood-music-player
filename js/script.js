@@ -100,14 +100,14 @@ function getAudioTrack(id) {
         $('#audio-features').text("Happy Song");
 
         // HOME IP
-        // $.get("http://192.168.1.47/H", function(data, status){
-        //   alert("Data: " + data + "\nStatus: " + status);
-        // });
-
-        // VIDIAS PHONE
-        $.get("http://172.20.10.10/H", function(data, status){
+        $.get("http://192.168.1.47/H", function(data, status){
           alert("Data: " + data + "\nStatus: " + status);
         });
+
+        // VIDIAS PHONE
+        // $.get("http://172.20.10.10/H", function(data, status){
+        //   alert("Data: " + data + "\nStatus: " + status);
+        // });
      } else {
         $('#audio-features').text("Mellow Song");
      }
